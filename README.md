@@ -2,9 +2,9 @@
 
 Created with love by: Anh Nguyen
   
-[//]: # (View online at: `Your URL here`)
+View online at: ``` https://albertanguyen.github.io/Guessing-Game.github.io/ ```
   
-One or two sentence summary of your project. 
+[//]: # (One or two sentence summary of your project.)
 
 [//]: # (## Video Walkthrough)
 
