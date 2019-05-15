@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta class="keywords" content="HTML, CSS. Javascript" />
+  <!-- Import Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+    rel="stylesheet" />
+  <!--Import social icons font-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!--Import font family-->
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
+
+  <!--Import customized stylesheet-->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="img/logo-removebg.png" type="image/x-icon" />
+
+  <title>The Guessing Game</title>
+</head>
+
+
+
+<body>
+
+  <nav class="navbar bg-light border-bottom box-shadow navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu-items">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu-items">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item ml-3 pt-1">
+            <a class="nav-link text-uppercase" href="#">Guessing Games</a>
+          </li>
+          <li class="nav-item ml-3 pt-1">
+            <a class="nav-link text-uppercase" href="#">Game Libraries</a>
+          </li>
+          <li class="nav-item ml-3 pt-1">
+            <a class="nav-link text-uppercase" href="#">About Us</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <header class="text-center mx-auto mt-5 py-5">
+    <h1 class="text-uppercase text-white" style="font-family: Oswald;">
+      <span style="color: #F2A900;">GAMGETOPIA</span> - Guessing Game</h1>
+  </header>
+
+
+  <section class="card-deck text-center">
+    <div class="container">
+      <div class="card mb-4 box-shadow col-md-8 align-content-center">
+        <div class="card-header bg-transparent">
+          <img src="img/bingo-bg1.jpg" style="visibility: hidden" alt="bingo-mess" width="50%"
+            height="auto" id="bingoMessage">
+          <img src="img/TrollFace.jpg" style="visibility: hidden; width: 300px" id="trollface">
+          <span class=" text-uppercase text-success" style="visibility: hidden" id="wrongGuess">You are almost
+            there!
+          </span>
+          <h3 class="alert alert-danger" role="alert" style="visibility: hidden" id="toolow"> Oops! Too low!</h3>
+          <h3 class="alert alert-danger" role="alert" style="visibility: hidden" id="toohigh">Oops! Too high!</h3>
+          <h3 class="alert alert-danger" role="alert" style="visibility: hidden" id="inputError">Oops! NOT a number!!</h3>
+        </div>
+        <div class="card-body d-flex flex-column">
+          <h3 class="card-title">Your journey starts here!</h3>
+          <p class="card-text font-weight-bold mb-auto">Give your best guess! Let guess a number from 1 to 100!</p>
+          <div class="d-flex justify-content-center justify-content-center">
+            <input class="mx-5 mt-2 d-inline-flex" type="text" id="guess" />
+            <input class="mx-5 mt-2 d-inline-flex" id="numberOfAvailableGuesses">
+          </div>
+
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center">
+            <ul class="d-inline-flex list-unstyled">
+              <li class="px-1">
+                <button class="btn btn-lg text-white" onclick="guessNumber()"
+                  style="padding-left: 1.75rem; padding-right: 1.75rem; background: rgb(165, 38, 7);" href="#"
+                  role="button">Guess</button></li>
+              <li class="px-1"><button class="btn btn-lg text-white" onclick="resetGame()"
+                  style="background: rgb(165, 38, 7);" href="#" role="button">Reset</button></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+  </section>
+
+  <footer class="page-footer font-small special-color-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+
+          <!-- Form -->
+          <form class="form-inline">
+            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </form>
+        </div>
+        <div class="col-md-6 mb-4">
+
+          <form class="input-group">
+            <input type="text" class="form-control form-control-sm" placeholder="Your email" aria-label="Your email"
+              aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-sm ml-md-2 btn-block text-white font-weight-bold" type="button"
+                class="btn btn-warning" data-toggle="button" aria-pressed="false" autocomplete="off"
+                style="background: rgb(165, 38, 7);">Sign up </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/"> Anhanh.com</a>
+    </div>
+  </footer>
+
+  <!--bootstrap script-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <!--modal script-->
+  <script>
+    // Get the modal
+    var modal = document.getElementById("id01");
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+  <!--Import Java Script-->
+  <script src="js/scripts.js"></script>
+
+</body>
+
+</html>

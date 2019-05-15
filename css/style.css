@@ -1,0 +1,26 @@
+body {
+  background-image: url(../img/bg-img.jpg);
+}
+.container {
+  max-width: 50%;
+  height: auto;
+}
+
+header {
+  background: url(../img/game-bg.jpg);
+  width: 100%:
+  height: 400px;
+}
+
+footer {
+  background: url(../img/game-bg.jpg);
+  width: 100%;
+  height: 400px;
+  padding-top: 4rem;
+  margin: 0 auto;
+  background-color: black;
+}
+
+section {
+  background: url(../img/bingo-bg.jpg)
+}
