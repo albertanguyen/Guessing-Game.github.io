@@ -24,3 +24,9 @@ footer {
 section {
   background: url(../img/bingo-bg.jpg)
 }
+
+#Guessbutton {
+   padding-left: 1.75rem; 
+   padding-right: 1.75rem; 
+   background: rgb(165, 38,7);
+}

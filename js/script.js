@@ -5,15 +5,11 @@ let min = 1;
 let max = 100;
 
 function GuessNumber(guess, NumOfGuess) {
-  StartGame();
-  InputArray = getInput() 
-  guess = parseInt(InputArray[0]);
-  NumOfGuess = parseInt(InputArray[1]); 
-  if (NumOfGuess === 0) {
-    return resetGame();
-  } 
-  //  const generatedRandomNumber = Math.floor(Math.random() * (max - min + 1) + min);
-  const generatedRandomNumber = 10;
+  guessNow = parseInt(guess);
+  NumOfGuessNow = parseInt(NumOfGuess);
+  const generatedRandomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+  //const generatedRandomNumber = 10;
+  console.log(generatedRandomNumber);
   list = [{
     Visib: "visible",
     idx: "toolow"
@@ -31,64 +27,89 @@ function GuessNumber(guess, NumOfGuess) {
     idx: "letsgo"
   }]
   //    var arr = Array(2).fill({Visib: }, {idx})
-  let n = 0;
-  while (n < NumOfGuess) {
-    if (guess > generatedRandomNumber - 10) {
-      let remain = Num -1
-      return console.log([remain, list[0], list[3]]);
-    } if (guess >= generatedRandomNumber + 10) {
-      let remain = NumOfGuess -1
-      return console.log([remain, list[1], list[3]]);
-    } else if (diff(guess - generatedRandomNumber) === 0) {
-      resetGame();
-      return console.log([0, list[2], list[3]]);
-    }
+  if (NumOfGuess === 0) {
+    return resetGame();
+  }
+  if (guessNow > generatedRandomNumber - 10) {
+    return [list[0], list[2], list[4]];
+  }
+  if (guessNow >= generatedRandomNumber + 10) {
+    return [list[1], list[2], list[4]];
+  } else if (diff(guessNow - generatedRandomNumber) === 0) {
+    resetGame();
+    return [list[3], list[4]];
   }
 }
 
 /* GuessNumber(10, 10) // Test GuessNumber function */
 
+/* Event Listener*/
+
+
+function incrementIndex() {
+  let index = 0;
+  index += 1;
+  console.log(index);
+}
 
 function diff(guess, expected) {
   return Math.abs(guess - expected);
 }
-
+/*
 function getInput() {
   const guess = document.getElementById("guess").value;
   const NumOfGuess = document.getElementById("AvailableGuess").value;
+  console.log('guess and NumOfGuess', guess, NumOfGuess)
   return [guess, NumOfGuess];
 }
+*/
 
-function ExecutionGuessNumber() {
-  const guess = document.getElementById("guess").value;
-  const NumOfGuess = document.getElementById("AvailableGuess").value;
-  console.log(guess, NumOfGuess);
-  const Result = GuessNumber(guess, NumOfGuess);
-  console.log(Result);
-  document.getElementById(Result[2].idx).style.visibility = Result[1].Visib;
-  document.getElementById(Result[2].idx).style.visibility = Result[1].Visib;
-  document.getElementById(Result[2].idx).style.visibility = Result[1].Visib;
-  document.getElementById(Result[2].idx).style.visibility = Result[1].Visib;
-  document.getElementById(Result[2].idx).style.visibility = Result[1].Visib;
-  document.getElementById(Result[2].idx).value = Result[1].Visib;
-  document.getElementById("RemainingGuess").value = Result[0];
+function EventHandler () {
+
 }
 
-function resetGame() {
-  remain = document.getElementById("RemainingGuess").value;
-  if (remain == 0) {
-    document.getElementById("toolow").style.visibility = "hidden";
-    document.getElementById("trollface").style.visibility = "hidden";
-    document.getElementById("toohigh").style.visibility = "hidden";
-    document.getElementById("bingoMessage").style.visibility = "hidden";
-    document.getElementById("guess").innerText = '';
-    document.getElementById("AvailableGuess").innerText = '';
-  } 
-  StartGame();
+function ExecutionGuessNumber(event) {
+  event = document.getElementById("Guessbutton").addEventListener("click", incrementIndex);
+
+  const NumOfGuessIn = document.getElementById("AvailableGuess").value;
+
+  for (let i = 0; i < NumOfGuessIn; i++) {
+    const guessIn = document.getElementById("guess").value;
+    resetGame(NumOfGuessIn-index)
+    document.getElementById("RemainingNum").textContent = NumOfGuessIn-index;
+    console.log("guess and NumOfGuess", guessIn, NumOfGuessIn);
+    let Result = GuessNumber(guessIn, NumOfGuessIn);
+    console.log("Result", Result[0]);
+  }
 }
+
+
+    document.getElementById(String(Result[2]).idx)).addEventListener("click", ExecutionGuessNumber).style.visibility = Result[1].Visib;
+    document.getElementById(String(Result[2]).idx).addEventListener("click", ExecutionGuessNumber).style.visibility = Result[1].Visib;
+    document.getElementById(String(Result[2]).idx).addEventListener("click", ExecutionGuessNumber).style.visibility = Result[1].Visib;
+    document.getElementById(String(Result[2]).idx).addEventListener("click", ExecutionGuessNumber).style.visibility = Result[1].Visib;
+    document.getElementById(String(Result[2]).idx).addEventListener("click", ExecutionGuessNumber).style.visibility = Result[1].Visib;
+    document.getElementById(String(Result[2]).idx).addEventListener("click", ExecutionGuessNumber).value = Result[1].Visib;
+
+//target.addEventListener(onclick, );
+
 
 function StartGame() {
   document.getElementById("letsgo").style.visibility = "visible";
 }
 
+function resetGame(remain) {
+  console.log('remain', typeof remain);
+  if (remain == 0) {
+    document.getElementById("toolow").style.visibility = "hidden";
+    document.getElementById("trollface").style.visibility = "hidden";
+    document.getElementById("toohigh").style.visibility = "hidden";
+    document.getElementById("bingoMessage").style.visibility = "hidden";
+    document.getElementById("letsgo").style.visibility = "hidden";
+    document.getElementById("guess").innerText = '';
+    document.getElementById("AvailableGuess").innerText = '';
+  } else {
+      StartGame();
+  }
+}
 
