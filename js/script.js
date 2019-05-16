@@ -4,56 +4,68 @@ abs(a-b) >10 => too low or too high
 let min = 1;
 let max = 100;
 
+let guessHistory = [];
+let triggerList = [];
+  
+
+function WriteGuessHistory(guess) {
+  guessHistory.push(guess)
+  let listOfUserGuess = '';
+  guessHistory.map( (guess) => {
+    listOfUserGuess
+  })
+}
+
 function GuessNumber(guess, NumOfGuess) {
   guessNow = parseInt(guess);
   NumOfGuessNow = parseInt(NumOfGuess);
-  const generatedRandomNumber = Math.floor(Math.random() * (max - min + 1) + min);
-  //const generatedRandomNumber = 10;
-  console.log(generatedRandomNumber);
-  list = [{
-    Visib: "visible",
-    idx: "toolow"
-  }, {
-    Visib: "visible",
-    idx: "toohigh"
-  }, {
-    Visib: "visible",
-    idx: "trollface"
-  }, {
-    Visib: "visible",
-    idx: "bingo"
-  }, {
-    Visib: "visible",
-    idx: "letsgo"
-  }]
+//  const generatedRandomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+  const generatedRandomNumber = 10;
+  console.log('generated number',generatedRandomNumber);
+  
+  let triggerList = [];
+  
   //    var arr = Array(2).fill({Visib: }, {idx})
   if (NumOfGuess === 0) {
     return resetGame();
   }
+  if outOfRange(x, 1, 100) {
+    console.log("Your guess should be from 1 to 100. Let's try again!");
+  }
   if (guessNow > generatedRandomNumber - 10) {
-    return [list[0], list[2], list[4]];
+    //triggerList.push([list[0]) list[2], list[4]];
+    triggerList
+    
+    console.log('trigger list', triggerList)
   }
   if (guessNow >= generatedRandomNumber + 10) {
-    return [list[1], list[2], list[4]];
+    let triggerList = [list[1], list[2], list[4]];
+    console.log('trigger list', triggerList)
   } else if (diff(guessNow - generatedRandomNumber) === 0) {
     resetGame();
-    return [list[3], list[4]];
+    let [list[3], list[4]];
   }
 }
 
 /* GuessNumber(10, 10) // Test GuessNumber function */
 
 /* Event Listener*/
-
-
+/* output: not give out a number
 function incrementIndex() {
   let index = 0;
   index += 1;
   console.log(index);
 }
+incrementIndex()
+
+*/
 
 function diff(guess, expected) {
   return Math.abs(guess - expected);
+}
+
+function outOfRange(x, min, max) {
+  return x <= min | x >= max;
 }
 /*
 function getInput() {
@@ -64,17 +76,28 @@ function getInput() {
 }
 */
 
-function EventHandler () {
-
+function getInput () {
+  const NumOfGuessIn = parseInt(document.getElementById("AvailableGuess").value);
+  let GuessNumIn = parseInt(document.getElementById("guess").value);
+  return [GuessNumIn, NumOfGuessIn];
 }
 
+function ExecutionGuessNumber() {
+  let data = getInput();
+//  console.log(data[0], data[1]);
+  let result = GuessNumber(getInput[0], getInput[1]);
+  console.log(result);
+}
+
+
+/*
 function ExecutionGuessNumber(event) {
   event = document.getElementById("Guessbutton").addEventListener("click", incrementIndex);
-
-  const NumOfGuessIn = document.getElementById("AvailableGuess").value;
-
+  const NumOfGuess = getInput[0];
+  let GuessNum = getInput[1];
+  console.log(GuessNum, NumOfGuessIn)
   for (let i = 0; i < NumOfGuessIn; i++) {
-    const guessIn = document.getElementById("guess").value;
+    const guessIn = document.getElementById0fc66f0("guess").value;
     resetGame(NumOfGuessIn-index)
     document.getElementById("RemainingNum").textContent = NumOfGuessIn-index;
     console.log("guess and NumOfGuess", guessIn, NumOfGuessIn);
@@ -82,9 +105,8 @@ function ExecutionGuessNumber(event) {
     console.log("Result", Result[0]);
   }
 }
-
-
-    document.getElementById(String(Result[2]).idx)).addEventListener("click", ExecutionGuessNumber).style.visibility = Result[1].Visib;
+1
+    document.getElementById(String(Result[2]).idx)).a0fc66f0ddEventListener("click", ExecutionGuessNumber).style.visibility = Result[1].Visib;
     document.getElementById(String(Result[2]).idx).addEventListener("click", ExecutionGuessNumber).style.visibility = Result[1].Visib;
     document.getElementById(String(Result[2]).idx).addEventListener("click", ExecutionGuessNumber).style.visibility = Result[1].Visib;
     document.getElementById(String(Result[2]).idx).addEventListener("click", ExecutionGuessNumber).style.visibility = Result[1].Visib;
@@ -92,15 +114,18 @@ function ExecutionGuessNumber(event) {
     document.getElementById(String(Result[2]).idx).addEventListener("click", ExecutionGuessNumber).value = Result[1].Visib;
 
 //target.addEventListener(onclick, );
-
+*/
 
 function StartGame() {
   document.getElementById("letsgo").style.visibility = "visible";
 }
 
-function resetGame(remain) {
-  console.log('remain', typeof remain);
-  if (remain == 0) {
+function remainGuess() {
+  let remain = document.getElementById("")
+}
+
+function resetGame() {
+  if (remain == 0) {remain
     document.getElementById("toolow").style.visibility = "hidden";
     document.getElementById("trollface").style.visibility = "hidden";
     document.getElementById("toohigh").style.visibility = "hidden";
